@@ -16,20 +16,19 @@ const voters = [
   ];
 
 
-function getAverageAge() {
     const result = Math.round( voters.reduce( (revious, current) =>   revious  + current.age , 0) / voters.length );
     console.log(result);
-}
-getAverageAge();
 
-function getAgeWithVotedTrue() {
     const trueResult = voters.filter( elem => elem.voted == true)
     let res = Math.round( trueResult.reduce( (show, calc) => show + calc.age , 0) / trueResult.length);
-    }
-    getAgeWithVotedTrue();
-    
-function getAgeWithVotedfalse() {
-let falseResult = voters.filter( elem => elem.voted == false);
-let result = Math.round( falseResult.reduce( (show, calc) =>  show + calc.age  , 0)/ falseResult.length);
-}
-getAgeWithVotedfalse();
+
+    let falseResult = voters.filter( elem => elem.voted == false);
+    let resultfl = Math.round( falseResult.reduce( (show, calc) =>  show + calc.age  , 0)/ falseResult.length);
+
+let display = `
+<div>Average age of all people is : ${result}.</div>
+<div>Average age of voited people is : ${res}</div>
+<div>Average age of don't voited people is : ${resultfl}</div>
+
+`
+middle.innerHTML = display;
